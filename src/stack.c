@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "../include/stack.h"
 #define SIZE 5
 
 static int stack[SIZE];
@@ -20,7 +21,7 @@ void pop() {
     printf("Popped: %d\n", stack[top--]);
 }
 
-void display() {
+void displayStack(){
     if (top == -1) {
         printf("Empty\n");
         return;
@@ -50,12 +51,13 @@ void stackMenu() {
                 pop();
                 break;
             case 3:
-                display();
+                displayStack();
                 break;
             case 4:
                 return;
             default:
                 printf("Invalid\n");
+                break;
         }
     }
 }
