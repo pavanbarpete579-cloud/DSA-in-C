@@ -5,6 +5,7 @@
 #include "bst.h"
 #include "sorting.h"
 #include "graph.h"
+#include "hash.h"
 
         void stackMenu();
         void queueMenu();
@@ -13,12 +14,13 @@
         void sortingMenu();
         void searchingMenu();
         void graphMenu();
+        void hashMenu();
         
 int main() {
     int choice;
     while (1) {
         printf("\n--- DSA Toolkit ---\n");
-        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Exit\n");
+        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9 Exit\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
 
@@ -48,8 +50,12 @@ int main() {
                 break;
 
             case 8:
+                hashMenu();
+                break;
+
+            case 9:
                 return 0;
-                
+
             default:
                 printf("Invalid choice\n");
         }
