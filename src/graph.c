@@ -27,11 +27,12 @@ void graphMenu()
 
     addEdge(graph, 0, 1);
     addEdge(graph, 0, 2);
-    addEdge(graph, 1, 2);
-    addEdge(graph, 2, 3);
+    addEdge(graph, 1, 3);
+    addEdge(graph, 2, 4);
 
     printGraph(graph);
     BFS(graph, 0);
+    DFS(graph, 0);
 }
 
 void BFS(int graph[V][V], int start)
@@ -62,6 +63,30 @@ void BFS(int graph[V][V], int start)
             }
         }
     }
+
+    printf("\n");
+}
+void DFSUtil(int graph[V][V], int vertex, int visited[])
+{
+    visited[vertex] = 1;
+
+    printf("%d ", vertex);
+
+    for (int i = 0; i < V; i++)
+    {
+        if (graph[vertex][i] == 1 && !visited[i])
+        {
+            DFSUtil(graph, i, visited);
+        }
+    }
+}
+void DFS(int graph[V][V], int start)
+{
+    int visited[V] = {0};
+
+    printf("DFS Traversal: ");
+
+    DFSUtil(graph, start, visited);
 
     printf("\n");
 }
