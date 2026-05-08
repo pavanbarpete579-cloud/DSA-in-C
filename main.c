@@ -4,6 +4,7 @@
 #include "linkedlist.h"
 #include "bst.h"
 #include "sorting.h"
+#include "graph.h"
 
         void stackMenu();
         void queueMenu();
@@ -11,12 +12,13 @@
         void bstMenu();
         void sortingMenu();
         void searchingMenu();
+        void graphMenu();
         
 int main() {
     int choice;
     while (1) {
         printf("\n--- DSA Toolkit ---\n");
-        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Exit\n");
+        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Exit\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
 
@@ -42,7 +44,12 @@ int main() {
                 searchingMenu();
                 break;
             case 7:
+                graphMenu();
+                break;
+
+            case 8:
                 return 0;
+                
             default:
                 printf("Invalid choice\n");
         }
