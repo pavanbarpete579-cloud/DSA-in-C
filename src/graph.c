@@ -22,27 +22,24 @@ void printGraph(int graph[V][V])
         printf("\n");
     }
 }
-void graphMenu()
-{
-    int graph[V][V] = {0};
 
-    addEdge(graph, 0, 1);
-    addEdge(graph, 0, 2);
-    addEdge(graph, 1, 3);
-    addEdge(graph, 2, 4);
+    void graphMenu()
+{
+    int graph[V][V] = {
+        {0, 2, 4, 0, 0},
+        {2, 0, 1, 7, 0},
+        {4, 1, 0, 3, 5},
+        {0, 7, 3, 0, 1},
+        {0, 0, 5, 1, 0}
+    };
 
     printGraph(graph);
+
     BFS(graph, 0);
+
     DFS(graph, 0);
 
-    struct Graph* listGraph = createGraph(5);
-
-    addListEdge(listGraph, 0, 1);
-    addListEdge(listGraph, 0, 2);
-    addListEdge(listGraph, 1, 3);
-    addListEdge(listGraph, 2, 4);
-
-    printListGraph(listGraph);
+    dijkstra(graph, 0);
 }
 
 void BFS(int graph[V][V], int start)
@@ -155,5 +152,59 @@ void printListGraph(struct Graph* graph)
         }
 
         printf("NULL\n");
+    }
+}
+int minDistance(int dist[], int visited[])
+{
+    int min = 9999;
+    int minIndex;
+
+    for (int v = 0; v < V; v++)
+    {
+        if (visited[v] == 0 && dist[v] <= min)
+        {
+            min = dist[v];
+            minIndex = v;
+        }
+    }
+
+    return minIndex;
+}
+void dijkstra(int graph[V][V], int start)
+{
+    int dist[V];
+    int visited[V];
+
+    for (int i = 0; i < V; i++)
+    {
+        dist[i] = 9999;
+        visited[i] = 0;
+    }
+
+    dist[start] = 0;
+
+    for (int count = 0; count < V - 1; count++)
+    {
+        int u = minDistance(dist, visited);
+
+        visited[u] = 1;
+
+        for (int v = 0; v < V; v++)
+        {
+            if (!visited[v] &&
+                graph[u][v] &&
+                dist[u] != 9999 &&
+                dist[u] + graph[u][v] < dist[v])
+            {
+                dist[v] = dist[u] + graph[u][v];
+            }
+        }
+    }
+
+    printf("\nShortest Distances from Vertex %d:\n", start);
+
+    for (int i = 0; i < V; i++)
+    {
+        printf("To %d = %d\n", i, dist[i]);
     }
 }
