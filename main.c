@@ -7,6 +7,7 @@
 #include "graph.h"
 #include "hash.h"
 #include "heap.h"
+#include "trie.h"
 
         void stackMenu();
         void queueMenu();
@@ -17,12 +18,14 @@
         void graphMenu();
         void hashMenu();
         void heapMenu();
+        void trieMenu();
+        
         
 int main() {
     int choice;
     while (1) {
         printf("\n--- DSA Toolkit ---\n");
-        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Exit\n");
+        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Exit\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
 
@@ -60,6 +63,10 @@ int main() {
                 break;
 
             case 10:
+                trieMenu();
+                break;
+
+            case 11:
                 return 0;
 
             default:
