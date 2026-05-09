@@ -103,14 +103,36 @@ int longestCommonSubsequence(char str1[], char str2[])
 
     return dp[m][n];
 }
+
+int coinChangeWays(int coins[], int n, int amount)
+{
+    int dp[100];
+
+    for (int i = 0; i <= amount; i++)
+    {
+        dp[i] = 0;
+    }
+
+    dp[0] = 1;
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = coins[i]; j <= amount; j++)
+        {
+            dp[j] += dp[j - coins[i]];
+        }
+    }
+
+    return dp[amount];
+}
 void dpMenu()
 {
-    char str1[] = "ABCBDAB";
+    int coins[] = {1, 2, 5};
 
-    char str2[] = "BDCAB";
+    int amount = 5;
 
-    int length =
-        longestCommonSubsequence(str1, str2);
+    int ways =
+        coinChangeWays(coins, 3, amount);
 
-    printf("LCS Length = %d\n", length);
+    printf("Total Ways = %d\n", ways);
 }
