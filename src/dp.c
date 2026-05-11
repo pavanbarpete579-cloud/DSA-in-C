@@ -125,14 +125,45 @@ int coinChangeWays(int coins[], int n, int amount)
 
     return dp[amount];
 }
+int longestIncreasingSubsequence(int arr[], int n)
+{
+    int dp[100];
+
+    int maxLength = 1;
+
+    for (int i = 0; i < n; i++)
+    {
+        dp[i] = 1;
+    }
+
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (arr[i] > arr[j] &&
+                dp[i] < dp[j] + 1)
+            {
+                dp[i] = dp[j] + 1;
+            }
+        }
+
+        if (dp[i] > maxLength)
+        {
+            maxLength = dp[i];
+        }
+    }
+
+    return maxLength;
+}
 void dpMenu()
 {
-    int coins[] = {1, 2, 5};
+    int arr[] = {10, 22, 9, 33, 21, 50, 41, 60};
 
-    int amount = 5;
+    int n =
+        sizeof(arr) / sizeof(arr[0]);
 
-    int ways =
-        coinChangeWays(coins, 3, amount);
+    int length =
+        longestIncreasingSubsequence(arr, n);
 
-    printf("Total Ways = %d\n", ways);
+    printf("LIS Length = %d\n", length);
 }
