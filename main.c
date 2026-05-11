@@ -14,6 +14,7 @@
 #include "dsu.h"
 #include "kruskal.h"
 #include "prim.h"
+#include "bellmanford.h"
 
         void stackMenu();
         void queueMenu();
@@ -31,6 +32,7 @@
         void dsuMenu();
         void kruskalMenu();
         void primMenu();
+        void bellmanFordMenu();
         
         
         
@@ -38,7 +40,7 @@ int main() {
     int choice;
     while (1) {
         printf("\n--- DSA Toolkit ---\n");
-        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14. Disjoint Set Union\n15. Kruskal Algorithm\n16. Prim Algorithm\n17. Exit\n");
+        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14. Disjoint Set Union\n15. Kruskal Algorithm\n16. Prim Algorithm\n17. Bellman-Ford\n18. Exit\n");
 
         printf("Enter choice: ");
 
@@ -105,8 +107,12 @@ int main() {
                 primMenu();
                 break;
 
-case 17:
-    return 0;
+            case 17:
+                bellmanFordMenu();
+                break;
+
+            case 18:
+                return 0;
 
             default:
                 printf("Invalid choice\n");
