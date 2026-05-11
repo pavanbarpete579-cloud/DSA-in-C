@@ -11,6 +11,7 @@
 #include "dp.h"
 #include "backtracking.h"
 #include "greedy.h"
+#include "dsu.h"
 
         void stackMenu();
         void queueMenu();
@@ -25,6 +26,7 @@
         void dpMenu();
         void backtrackingMenu();
         void greedyMenu();
+        void dsuMenu();
         
         
         
@@ -32,7 +34,7 @@ int main() {
     int choice;
     while (1) {
         printf("\n--- DSA Toolkit ---\n");
-        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14 Exit\n");
+        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14. Disjoint Set Union\n15. Exit\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
 
@@ -86,6 +88,10 @@ int main() {
                 break;
 
             case 14:
+                dsuMenu();
+                break;
+
+            case 15:
                 return 0;
 
             default:
