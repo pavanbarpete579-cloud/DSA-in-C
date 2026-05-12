@@ -16,6 +16,7 @@
 #include "prim.h"
 #include "bellmanford.h"
 #include "floydwarshall.h"
+#include "segmenttree.h"
 
         void stackMenu();
         void queueMenu();
@@ -35,6 +36,7 @@
         void primMenu();
         void bellmanFordMenu();
         void floydWarshallMenu();
+        void segmentTreeMenu();
         
         
         
@@ -42,7 +44,7 @@ int main() {
     int choice;
     while (1) {
         printf("\n--- DSA Toolkit ---\n");
-        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14. Disjoint Set Union\n15. Kruskal Algorithm\n16. Prim Algorithm\n17. Bellman-Ford\n18. Floyd-Warshall\n19. Exit\n");
+        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14. Disjoint Set Union\n15. Kruskal Algorithm\n16. Prim Algorithm\n17. Bellman-Ford\n18. Floyd-Warshall\n19.Segment Tree\n20 Exit\n");
 
         printf("Enter choice: ");
 
@@ -118,6 +120,10 @@ int main() {
                 break;
 
             case 19:
+                segmentTreeMenu();
+                break;
+
+            case 20:
                 return 0;
 
             default:
