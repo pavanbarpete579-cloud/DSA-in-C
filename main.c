@@ -19,6 +19,7 @@
 #include "segmenttree.h"
 #include "fenwick.h"
 #include "kmp.h"
+#include "rabinkarp.h"
 
         void stackMenu();
         void queueMenu();
@@ -41,13 +42,14 @@
         void segmentTreeMenu();
         void fenwickMenu();
         void kmpMenu();
+        void rabinKarpMenu();
         
         
 int main() {
     int choice;
     while (1) {
         printf("\n--- DSA Toolkit ---\n");
-        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14. Disjoint Set Union\n15. Kruskal Algorithm\n16. Prim Algorithm\n17. Bellman-Ford\n18. Floyd-Warshall\n19. Segment Tree\n20. Fenwick Tree\n21. KMP String Matching\n22. Exit\n");
+        printf("1. Stack\n2. Queue\n3. Linked List\n4. BST\n5. Sorting\n6. Searching\n7. Graph\n8. Hashing\n9. Heap\n10. Trie\n11. Dp\n12. Backtracking\n13. Greedy Algorithms\n14. Disjoint Set Union\n15. Kruskal Algorithm\n16. Prim Algorithm\n17. Bellman-Ford\n18. Floyd-Warshall\n19. Segment Tree\n20. Fenwick Tree\n21. KMP String Matching\n22. Rabin-Karp\n23. Exit\n");
 
         printf("Enter choice: ");
 
@@ -135,6 +137,10 @@ int main() {
                 break;
 
             case 22:
+                rabinKarpMenu();
+                break;
+
+            case 23:
                 return 0;
 
             default:
