@@ -58,27 +58,65 @@ int searchWord(struct TrieNode* root, char* word)
 }
 void trieMenu()
 {
-    struct TrieNode* root = createTrieNode();
+    struct TrieNode* root =
+        createTrieNode();
 
     insertWord(root, "cat");
     insertWord(root, "car");
+    insertWord(root, "cart");
     insertWord(root, "dog");
 
-    if (searchWord(root, "cat"))
+    printf("Suggestions:\n");
+
+    autocomplete(root, "ca");
+}
+void printSuggestions(struct TrieNode* root,
+                      char word[],
+                      int level)
+{
+    if (root->isEndOfWord)
     {
-        printf("cat found\n");
-    }
-    else
-    {
-        printf("cat not found\n");
+        word[level] = '\0';
+
+        printf("%s\n", word);
     }
 
-    if (searchWord(root, "bat"))
+    for (int i = 0; i < ALPHABET_SIZE; i++)
     {
-        printf("bat found\n");
+        if (root->children[i])
+        {
+            word[level] = i + 'a';
+
+            printSuggestions(root->children[i],
+                             word,
+                             level + 1);
+        }
     }
-    else
+}
+void autocomplete(struct TrieNode* root,
+                  char prefix[])
+{
+    struct TrieNode* current = root;
+
+    for (int i = 0; prefix[i] != '\0'; i++)
     {
-        printf("bat not found\n");
+        int index = prefix[i] - 'a';
+
+        if (current->children[index] == NULL)
+        {
+            printf("No suggestions found\n");
+
+            return;
+        }
+
+        current = current->children[index];
     }
+
+    char word[100];
+
+    strcpy(word, prefix);
+
+    printSuggestions(current,
+                     word,
+                     strlen(prefix));
 }

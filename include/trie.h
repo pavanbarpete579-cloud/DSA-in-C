@@ -15,4 +15,7 @@ void insertWord(struct TrieNode* root, char* word);
 
 int searchWord(struct TrieNode* root, char* word);
 
+void autocomplete(struct TrieNode* root,
+                  char prefix[]);
+
 #endif
