@@ -1,18 +1,25 @@
 # DSA in C
 
-## 📌 Description
-This repository contains my daily practice of Data Structures and Algorithms using C language.
+## Features
+- Stack
+- Queue
+- Linked List
+- BST
+- Graph Algorithms
+- Dynamic Programming
+- Segment Tree
+- Fenwick Tree
+- Trie
+- KMP
+- Rabin-Karp
+- A* Algorithm
+- Priority Queue
 
-## 🚀 Topics Covered
-- Basics of C
-- If-Else
-- Loops
-- Arrays
-- Searching
-- Linked List (upcoming)
+## Folder Structure
+include/
+src/
+main.c
 
-## 🎯 Goal
-To build strong problem-solving skills using C and DSA concepts.
-
-## 🛠️ Language
-C
+## Compile
+```bash
+gcc main.c src/*.c -Iinclude -o main
